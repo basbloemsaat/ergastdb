@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  ergastdb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ergastdb
+      MARIADB_DATABASE: ergast
+
+    ports:
+      - 3306:3306
+
+    volumes:
+      - data:/data
+
+volumes:
+  data:
